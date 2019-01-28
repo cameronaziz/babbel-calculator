@@ -1,32 +1,84 @@
-.App {
+.app {
+  text-align: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.calculator {
+  display: grid;
+  min-width: 400px;
+  margin: auto;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+}
+
+.field {
+  height: 100%;
+  width: 100%;
+  display: table;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.field.full-row {
+  grid-column: 1 / 6;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.field.first-two-grid {
+  grid-column: 1 / 3;
+}
+
+.field.two-three-grid {
+  grid-column: 2 / 4;
+}
+
+.field > div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.field > div:not(.screen) {
+  cursor: pointer;
+  border: 1px solid rgba(153, 153, 153, 0.3);
+}
+
+.screen {
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: right;
+  padding-right: 10px;
+  font-size: 2rem;
+  height: 70px;
+}
+
+.screen > .decimal {
+  margin-left: -5px;
+}
+
+.screen > .result {
+  font-weight: 400;
+}
+
+.function {
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.function:active {
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.operator {
+  background-color: rgba(255, 165, 0, 1);
+}
+
+.operator:active {
+  background-color: #e49503;
+}
+
+.number {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.number:active {
+  background-color: rgba(0, 0, 0, 0.2);
 }
